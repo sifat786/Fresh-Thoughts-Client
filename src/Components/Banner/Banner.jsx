@@ -2,7 +2,7 @@
 
 const Banner = () => {
     return (
-            <div className="lg:flex mb-12 md:mb-10 lg:my-12">
+        <div id="welcome" className="lg:flex mb-12 md:mb-10 lg:my-12">
             <div className="flex items-center justify-center w-full px-6 py-8 lg:h-[32rem] lg:w-1/2">
                 <div className="max-w-xl">
                     <h2 className="text-2xl md:text-3xl font-semibold font-sifu text-gray-800 dark:text-white lg:text-4xl">Welcome to Our <span className="text-red-500 dark:text-blue-400">Blog</span></h2>

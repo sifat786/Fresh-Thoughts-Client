@@ -14,7 +14,7 @@ const NewsLetter = () => {
   }
 
     return (
-        <section id='newsletter' className='bg-white dark:bg-gray-900'>
+        <section className='bg-white dark:bg-gray-900'>
             <div className="container px-6 md:py-16 mx-auto">
                 <div className="items-center lg:flex flex-row-reverse lg:gap-20">
                     <div className="w-full lg:w-1/2">
