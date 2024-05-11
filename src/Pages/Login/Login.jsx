@@ -1,11 +1,10 @@
 
 
 const Login = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  return (
+    <div className='container my-16'>
+    </div>
+  );
 };
 
 export default Login;

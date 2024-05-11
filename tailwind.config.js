@@ -1,13 +1,17 @@
+const flowbite = require("flowbite-react/tailwind");
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    flowbite.content(),
   ],
+
   theme: {
 
     fontFamily: {
-      // 'lora': ['Lora', 'serif'],
+      'sifu': ['Alatsi', 'sans-serif'],
+      'gfs': ['GFS Neohellenic', 'sans-serif'],
     },
     
     container: {
@@ -16,13 +20,16 @@ export default {
     screens: {
       'sm': '380px',
       'md': '700px',
-      'lg': '1140px',
+      'lg': '1240px',
     },
 
     extend: {},
   },
 
 
-  plugins: [require("daisyui")]
+  plugins: [
+    require("daisyui"),
+    flowbite.plugin(),
+  ]
 
-}
+};

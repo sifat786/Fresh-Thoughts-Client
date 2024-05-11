@@ -1,5 +1,5 @@
 /* //? Google Fonts: */
-
+@import url('https://fonts.googleapis.com/css2?family=Alatsi&family=GFS+Neohellenic:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 
 @tailwind base;
@@ -11,5 +11,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Lato", sans-serif;
+  font-family: "Alatsi", sans-serif;
+  /* font-family: "GFS Neohellenic", sans-serif; */
 }
