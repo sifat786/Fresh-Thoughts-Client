@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from '/favicon.png';
+import logo from '../../../public/favicon.png';
 
 
 const Footer = () => {
@@ -15,7 +15,7 @@ const Footer = () => {
                     <div className="flex flex-wrap justify-center mt-6 -mx-4">
                         <Link to={'/'} className="mx-4 text-base font-medium text-gray-600 transition-colors duration-300 hover:text-red-500 dark:text-gray-300 dark:hover:text-blue-400" aria-label="Reddit"> Home </Link>
                         
-                        <a href="#" className="mx-4 text-base font-medium text-gray-600 transition-colors duration-300 hover:text-red-500 dark:text-gray-300 dark:hover:text-blue-400" aria-label="Reddit"> About </a>
+                        <Link to={'/#newsletter'} className="mx-4 text-base font-medium text-gray-600 transition-colors duration-300 hover:text-red-500 dark:text-gray-300 dark:hover:text-blue-400" aria-label="Reddit"> NewsLetter </Link>
                         
                         <a href="#" className="mx-4 text-base font-medium text-gray-600 transition-colors duration-300 hover:text-red-500 dark:text-gray-300 dark:hover:text-blue-400" aria-label="Reddit"> Teams </a>
 

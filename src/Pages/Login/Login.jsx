@@ -50,7 +50,7 @@ const Login = () => {
 
   return (
     <div className="pb-8 md:pb-[70px] lg:pb-[130px] pt-4 md:pt-[30px] lg:pt-[60px] container">
-            <div className="">
+            <div>
                 <div className="flex justify-between flex-col lg:flex-row items-center">
                     <div className="w-full md:flex lg:justify-start md:justify-center mb-5 lg:mb-0 hidden">
                         <img src={login} />

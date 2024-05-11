@@ -7,7 +7,7 @@ const Banner = () => {
                 <div className="max-w-xl">
                     <h2 className="text-2xl md:text-3xl font-semibold font-sifu text-gray-800 dark:text-white lg:text-4xl">Welcome to Our <span className="text-red-500 dark:text-blue-400">Blog</span></h2>
 
-                    <p className="mt-4 text-base text-gray-500 font-gfs font-semibold dark:text-gray-400 md:text-xl">Discover the latest insights, tips, and stories from our team of experts. Explore a wide range of topics including technology, travel, lifestyle, and more.</p>
+                    <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 md:text-base">Discover the latest insights, tips, and stories from our team of experts. Explore a wide range of topics including technology, travel, lifestyle, and more.</p>
 
                     <div className="flex flex-col mt-6 space-y-3 lg:space-y-0 lg:flex-row">
                         <button className="w-fit py-[5px] px-[10px] md:py-2 md:px-5 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-red-600 via-red-400 to-red-200 rounded-[5px] text-white text-sm md:text-lg md:font-medium">Get Started</button>
