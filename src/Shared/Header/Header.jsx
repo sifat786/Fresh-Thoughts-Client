@@ -1,8 +1,13 @@
+import useAuth from "../../Hooks/useAuth";
 import {  Link, NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
+import userDefaultPic from '../../assets/images/userDefaultPic.png';
+
 
 
 const Header = () => {
+
+    const {user, logOut} = useAuth();
     
     const navLinks = (
         <>
@@ -59,7 +64,7 @@ const Header = () => {
     ); 
 
   return (
-    <div className="bg-purple-50 shadow-md px-2 md:px-14">
+    <div className="bg-purple-50 shadow-md md:px-14">
         <div className="navbar py-4 md:py-[30px] px-0">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -82,24 +87,33 @@ const Header = () => {
                         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
                 </div>
 
-                <div className="navbar-end gap-2 md:gap-[30px] items-center ">
+                <div className="navbar-end gap-2 md:gap-5 items-center ">
 
-                    <div>
-                        <Link to={'/login'}>
-                            <button className="w-fit py-1 px-[10px] md:py-2 md:px-5 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-red-600 via-red-400 to-red-200 rounded-[5px] text-white text-sm md:text-lg md:font-medium">Login</button>
-                        </Link>
-                        <Link to={'/register'} className="ml-1 md:ml-2">
-                            <button className="w-fit py-1 px-[10px] md:py-2 md:px-5 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-red-600 via-red-400 to-red-200 rounded-[5px] text-white text-sm md:text-lg md:font-medium">Register</button>
-                        </Link>
-                    </div>
-
-                    {/* <div className="dropdown dropdown-end flex z-10">
-                        <div role="button" className= 'tooltip tooltip-left md:tooltip-bottom border-2 border-red-500 rounded-full'>
-                            <div  className="w-8 h-8 md:w-10 md:h-10 rounded-full">
-                                <img className="rounded-full w-full h-full" src=''/>
+                    {
+                        !user && 
+                        <div>
+                            <Link to={'/login'}>
+                                <button className="w-fit py-1 px-[10px] md:py-2 md:px-5 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-red-600 via-red-400 to-red-200 rounded-[5px] text-white text-sm md:text-lg md:font-medium">Sign In</button>
+                            </Link>
+                            <Link to={'/register'} className="ml-1 md:ml-2">
+                                <button className="w-fit py-1 px-[10px] md:py-2 md:px-5 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-red-600 via-red-400 to-red-200 rounded-[5px] text-white text-sm md:text-lg md:font-medium">Sign Up</button>
+                            </Link>
+                        </div>
+                    }
+                    {
+                        user &&
+                        <button onClick={logOut} className="w-fit py-1 px-[10px] md:py-2 md:px-5 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-red-600 via-red-400 to-red-200 rounded-[5px] text-white text-sm md:text-lg md:font-medium">Sign Out</button> 
+                    }
+                    {
+                        user && 
+                        <div title={user.displayName} className="dropdown dropdown-end flex z-10">
+                            <div role="button" className= 'tooltip tooltip-left md:tooltip-bottom border-4 border-red-500 rounded-full'>
+                                <div  className="w-8 h-8 md:w-10 md:h-10 rounded-full">
+                                    <img referrerPolicy="no-referrer" className="rounded-full w-full h-full" src={user.photoURL === null ? userDefaultPic : user?.photoURL}/>
+                                </div>
                             </div>
                         </div>
-                    </div> */}
+                    }
 
                 </div>
             </div>
