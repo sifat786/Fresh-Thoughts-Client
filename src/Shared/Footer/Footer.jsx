@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from '../../../public/favicon.png';
+import logo from '/favicon.png';
 
 
 const Footer = () => {
@@ -19,7 +19,7 @@ const Footer = () => {
 
                         <Link to={'/#testimonial'} className="mx-4 text-base font-medium text-gray-600 transition-colors duration-300 hover:text-red-500 dark:text-gray-300 dark:hover:text-blue-400" aria-label="Reddit"> Testimonial </Link>
 
-                        <Link to={'/#'} className="mx-4 text-base font-medium text-gray-600 transition-colors duration-300 hover:text-red-500 dark:text-gray-300 dark:hover:text-blue-400" aria-label="Reddit"> Privacy </Link>
+                        <Link to={'/#faq'} className="mx-4 text-base font-medium text-gray-600 transition-colors duration-300 hover:text-red-500 dark:text-gray-300 dark:hover:text-blue-400" aria-label="Reddit"> FAQ </Link>
 
                         <Link to={'/#welcome'} className="mx-4 text-base font-medium text-gray-600 transition-colors duration-300 hover:text-red-500 dark:text-gray-300 dark:hover:text-blue-400" aria-label="Reddit"> Welcome </Link>
                     </div>

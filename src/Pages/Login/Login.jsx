@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from '../../assets/images/login.jpg';
 import { FcGoogle } from "react-icons/fc";
 import { FiEye, FiEyeOff } from "react-icons/fi";
-import logo from '../../../public/favicon.png'
+import logo from '/favicon.png';
 import useAuth from './../../Hooks/useAuth';
 import toast from "react-hot-toast";
 
@@ -20,12 +20,13 @@ const Login = () => {
   const handleLogin = async (data) => {
     const {email, password} = data;
     reset();
+    const from = location?.state ? location.state : '/';
 
     try{
       await loginUser(email, password);
       toast.success('SignIn Successfully');
       setTimeout(() => {
-        navigate(location?.state ? location.state : '/');
+        navigate(from, {replace: true});
       }, 2000);
     } catch(err) {
       console.log(err);

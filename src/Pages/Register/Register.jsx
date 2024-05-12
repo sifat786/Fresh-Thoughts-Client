@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FiEye } from "react-icons/fi";
 import { FiEyeOff } from "react-icons/fi";
 import signup from '../../assets/images/register.jpg';
-import logo from '../../../public/favicon.png'
+import logo from '/favicon.png';
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
 
@@ -20,6 +20,7 @@ const Register = () => {
     const handleRegister = async (data) => {
         const {name, email, password} = data;
         reset();
+        const from = location?.state ? location.state : '/';
 
         try {
             await createUser(email, password)
@@ -27,7 +28,7 @@ const Register = () => {
             setUser({ ...user, displayName: name })
             toast.success('SignUp Successfully');
             setTimeout(() => {
-                navigate(location?.state ? location.state : '/');
+                navigate(from, {replace: true});
             }, 2000);
         } catch (err) {
             console.log(err);

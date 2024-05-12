@@ -7,7 +7,7 @@ import girl2 from '../../assets/images/girl2.jpg';
 
 const Testimonial = () => {
     return (
-        <div className="bg-white dark:bg-gray-900 mt-0 mb-10 md:mt-24 md:mb-10">
+        <div id="testimonial" className="bg-white dark:bg-gray-900 mt-0 mb-10 md:mt-24 md:mb-10">
 
             <h2 className="text-3xl font-semibold text-center text-gray-800 dark:text-white lg:text-4xl">What Our <span className="text-red-500">Client</span> Says</h2>
 

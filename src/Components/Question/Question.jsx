@@ -2,7 +2,7 @@ import { Accordion } from "flowbite-react";
 
 const Question = () => {
   return (
-    <div className="mt-0 mb-20 md:mt-24 md:mb-10">
+    <div id="faq" className="mt-0 mb-20 md:mt-24 md:mb-10">
         <h2 className="text-3xl font-semibold text-center text-gray-800 dark:text-white lg:text-4xl">Frequently Asked <span className="text-red-500">Questions</span></h2>
         <p className="w-auto md:w-[580px] text-center mx-auto mt-4 mb-8 text-neutral-600 dark:text-gray-600">Explore our FAQ section for quick answers to common questions about our blog. Find information on subscriptions, guest contributions, commenting, and more. Have a question? Check here first!</p>
 
@@ -26,7 +26,7 @@ const Question = () => {
             <Accordion.Panel>
                 <Accordion.Title className="text-black font-medium text-xl">Can I contribute content to your blog as a guest writer</Accordion.Title>
                 <Accordion.Content>
-                    <p className=" mb-2 text-neutral-600 dark:text-gray-400">Absolutely! We&apos;re always looking for talented guest writers to contribute high-quality content to our blog. Please visit our &apos;Write for Us&apos; page for guidelines on guest posting and information on how to submit your article.
+                    <p className=" mb-2 text-neutral-600 dark:text-gray-400">Absolutely! We&apos;re always looking for talented guest writers to contribute high-quality content to our blog. Please visit our &apos;Add Blog&apos; page for guidelines on guest posting and information on how to submit your article.
                     </p>
                 </Accordion.Content>
             </Accordion.Panel>
