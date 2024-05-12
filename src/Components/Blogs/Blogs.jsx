@@ -1,14 +1,27 @@
 
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import { MdOutlineCategory } from "react-icons/md";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Link } from "react-router-dom";
-import useBlogs from "../../Hooks/useBlogs";
 
 
 const Blogs = () => {
 
-  const {data : blogs,isLoading} = useBlogs();
+  const {data : blogs,isLoading, error} = useQuery({
+    queryKey: ['blog'],
+    queryFn: async () => {
+      try {
+        const res = await axios(`http://localhost:5000/blogs`);
+        return res.data;
+        
+      } catch (e) {
+        console.log(e);
+        throw error;
+      }
+    }
+})
 
   return (
     <div id="blog" className="mt-0 mb-10 md:my-[60px] lg:my-[110px]">
@@ -32,7 +45,7 @@ const Blogs = () => {
             :
                 <>      
                   {
-                    blogs.slice(0, 6).map(blog => {
+                    blogs.slice(0, 6)?.map(blog => {
 
                       const {_id, category, image, title, short_description} = blog;
                       return (
