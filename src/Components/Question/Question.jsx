@@ -10,7 +10,7 @@ const Question = () => {
             <Accordion.Panel>
                 <Accordion.Title className="text-black font-medium text-xl">How can I subscribe to your blog for updates?</Accordion.Title>
                 <Accordion.Content>
-                    <p className=" mb-2 text-neutral-600 dark:text-gray-400">You can subscribe to our blog by entering your email address in the subscription form located on the sidebar or footer of our website. You&apos;ll receive notifications whenever we publish new articles or updates.
+                    <p className=" mb-2 text-neutral-600 dark:text-gray-400">You can subscribe to our blog by entering your email address in the newsletter form in our website. You&apos;ll receive notifications whenever we publish new articles or updates.
                     </p>
                 </Accordion.Content>
             </Accordion.Panel>

@@ -11,16 +11,14 @@ const PrivateRoute = ({children}) => {
 
     if(loading) {
         return (
-            <SkeletonTheme baseColor="#202020" highlightColor="#444">
-                <p>
-                <Skeleton count={3} />
-                </p>
+            <SkeletonTheme baseColor="#e6e9ed" highlightColor="#c1c4c7">
+                    <p className='text-center mx-auto'><Skeleton count={20} /></p>
             </SkeletonTheme>
         )
     }
     if(user) return children;
 
-    return <Navigate to={'/login'} state={location.pathname} replace='true' />
+    return <Navigate to={'/login'} state={location.pathname} replace={true} />
 
 };
 

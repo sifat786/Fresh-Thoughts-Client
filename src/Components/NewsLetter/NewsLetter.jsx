@@ -35,7 +35,7 @@ const NewsLetter = () => {
                                 <input 
                                     type='submit' 
                                     value='Subscribe' 
-                                    className="w-full px-5 py-2 text-sm tracking-wider text-white uppercase transition-colors duration-300 transform bg-red-600 rounded-lg lg:w-auto lg:mx-4 hover:bg-red-700 focus:outline-none focus:bg-black cursor-pointer"
+                                    className="px-5 py-2 text-sm tracking-wider text-white uppercase transition-colors duration-300 transform bg-red-600 rounded-lg lg:w-auto lg:mx-4 hover:bg-red-700 focus:outline-none focus:bg-black cursor-pointer"
                                 />
                             </form>
                         </div>

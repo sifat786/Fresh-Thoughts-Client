@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from '../../assets/images/login.jpg';
@@ -11,16 +11,22 @@ import toast from "react-hot-toast";
 
 const Login = () => {
 
-  const {loginUser, googleLogin} = useAuth();
+  const {loginUser, googleLogin, user, loading} = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const { register, handleSubmit, reset , formState: { errors } } = useForm();
 
+  useEffect(() => {
+    if(user) {
+        navigate('/');
+    }
+  },[user, navigate]);
+
   const handleLogin = async (data) => {
     const {email, password} = data;
     reset();
-    const from = location?.state ? location.state : '/';
+    const from =  location?.state || '/';
 
     try{
       await loginUser(email, password);
@@ -48,6 +54,8 @@ const Login = () => {
       toast.error(err?.message);
     }
   }
+
+  if(user || loading) return;
 
   return (
     <div className="pb-8 md:pb-[70px] lg:pb-[130px] pt-4 md:pt-[30px] lg:pt-[60px] container">

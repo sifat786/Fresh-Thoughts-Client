@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FiEye } from "react-icons/fi";
@@ -11,16 +11,22 @@ import toast from "react-hot-toast";
 
 const Register = () => {
 
-    const {createUser, updateUser, user, setUser} = useAuth();
+    const {createUser, updateUser, user, setUser, loading} = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const { register, handleSubmit, reset , formState: { errors } } = useForm();
 
+    useEffect(() => {
+        if(user) {
+            navigate('/');
+        }
+    },[navigate, user]);
+
     const handleRegister = async (data) => {
         const {name, email, password} = data;
         reset();
-        const from = location?.state ? location.state : '/';
+        const from = location?.state || '/';
 
         try {
             await createUser(email, password)
@@ -35,6 +41,8 @@ const Register = () => {
             toast.error('Your email is already registered!');
         }
     }
+
+    if(user || loading) return;
 
     return (
         <div className="pb-8 md:pb-[70px] lg:pb-[130px] pt-4 md:pt-[30px] lg:pt-[60px] container">
