@@ -69,6 +69,14 @@ const BlogDetails = () => {
                             <p>{short_description}</p>
                             <p className="mt-3">{long_description}</p>
                         </div>
+                        {
+                            isBlogOwner && 
+                            (
+                                <button onClick={() => {/* Navigate to update route */}} className="px-5 py-2  text-white uppercase bg-red-600 rounded-lg lg:w-auto  hover:bg-red-700 focus:bg-black cursor-pointer">
+                                    Update Blog
+                                </button>
+                            )
+                        }
                     </div>
                 </div>
             </div>
@@ -76,11 +84,11 @@ const BlogDetails = () => {
             {/* //* comments section: */}
             <hr className="md:w-[82%] lg:w-[72%] mx-auto border-2 border-red-500 mt-[-30px] hidden md:block"/>
             <div className="md:max-w-xl lg:max-w-3xl mx-auto md:mt-3">
-                <h4 className="md:text-xl lg:text-2xl font-semibold mb-3">Comments</h4>
+                <h4 className="text-xl lg:text-2xl font-semibold md:mb-3">Comments</h4>
                 {
                     isBlogOwner ? 
                         (
-                            <p className="text-gray-600">You cannot comment on your own blog.</p>
+                            <p className="text-red-600">You cannot comment on your own blog.</p>
                         ) 
                         
                         : 
@@ -106,9 +114,9 @@ const BlogDetails = () => {
 
                 {
                     commentsData?.map(comment => (
-                        <div key={comment._id} className="p-4 md:px-6 bg-red-50 rounded-md mt-6 shadow">
+                        <div key={comment._id} className="p-2 md:px-6 md:py-4 bg-red-50 rounded-md mt-4 md:mt-6 shadow w-1/2">
                             <div className="flex items-center gap-3">
-                                <img src={comment.userProfilePic} className="self-center flex-shrink-0 w-16 h-16 md:w-20 md:h-20 border rounded-full " />
+                                <img src={comment.userProfilePic} className="self-center flex-shrink-0 w-14 h-14 md:w-20 md:h-20 border rounded-full " />
                                 <div>
                                     <h4 className="md:text-lg font-semibold text-left">{comment.userName}</h4>
                                     <p className="text-xs md:text-sm">{comment.text}</p>
@@ -117,18 +125,8 @@ const BlogDetails = () => {
                         </div>
                     ))
                 }
-                
+
             </div>
-
-            {
-                isBlogOwner && 
-                (
-                    <button onClick={() => {/* Navigate to update route */}} className="block mx-auto mt-8 px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg">
-                        Update Blog
-                    </button>
-                )
-            }
-
         </div>
     );
 };

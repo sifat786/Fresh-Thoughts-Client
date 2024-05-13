@@ -11,7 +11,7 @@ import toast from "react-hot-toast";
 
 const Login = () => {
 
-  const {loginUser, googleLogin, user, loading} = useAuth();
+  const {loginUser, googleLogin, user} = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
@@ -55,7 +55,7 @@ const Login = () => {
     }
   }
 
-  if(user || loading) return;
+  if(user) return;
 
   return (
     <div className="pb-8 md:pb-[70px] lg:pb-[130px] pt-4 md:pt-[30px] lg:pt-[60px] container">

@@ -14,7 +14,7 @@ const Header = () => {
             <li>
                 <NavLink className={({ isActive }) =>
                             isActive
-                                ? " font-semibold text-lg bg-gradient-to-r from-red-500 via-green-500 to-purple-500 text-transparent bg-clip-text"
+                                ? " font-semibold text-lg bg-gradient-to-r from-yellow-500 via-red-500 to-pink-500 text-transparent bg-clip-text"
                                 : "font-medium text-lg"
                             } 
                             to="/"
@@ -24,7 +24,7 @@ const Header = () => {
             <li>
                 <NavLink className={({ isActive }) =>
                             isActive
-                                ? " font-semibold text-lg bg-gradient-to-r from-red-500 via-green-500 to-purple-500 text-transparent bg-clip-text"
+                                ? " font-semibold text-lg bg-gradient-to-r from-yellow-500 via-red-500 to-pink-500 text-transparent bg-clip-text"
                                 : "font-medium text-lg"
                             } 
                             to="/addBlogs"
@@ -34,7 +34,7 @@ const Header = () => {
             <li>
                 <NavLink className={({ isActive }) =>
                             isActive
-                                ? " font-semibold text-lg bg-gradient-to-r from-red-500 via-green-500 to-purple-500 text-transparent bg-clip-text"
+                                ? " font-semibold text-lg bg-gradient-to-r from-yellow-500 via-red-500 to-pink-500 text-transparent bg-clip-text"
                                 : "font-medium text-lg"
                             } 
                             to="/allBlogs"
@@ -44,7 +44,7 @@ const Header = () => {
             <li>
                 <NavLink className={({ isActive }) =>
                             isActive
-                                ? " font-semibold text-lg bg-gradient-to-r from-red-500 via-green-500 to-purple-500 text-transparent bg-clip-text"
+                                ? " font-semibold text-lg bg-gradient-to-r from-yellow-500 via-red-500 to-pink-500 text-transparent bg-clip-text"
                                 : "font-medium text-lg"
                             } 
                             to="/featured"
@@ -54,7 +54,7 @@ const Header = () => {
             <li>
                 <NavLink className={({ isActive }) =>
                             isActive
-                                ? " font-semibold text-lg bg-gradient-to-r from-red-500 via-green-500 to-purple-500 text-transparent bg-clip-text"
+                                ? " font-semibold text-lg bg-gradient-to-r from-yellow-500 via-red-500 to-pink-500 text-transparent bg-clip-text"
                                 : "font-medium text-lg"
                             } 
                             to="/wishlist"
