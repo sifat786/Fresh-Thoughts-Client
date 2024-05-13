@@ -10,6 +10,7 @@ import Login from './../Pages/Login/Login';
 import Register from './../Pages/Register/Register';
 import PrivateRoute from './PrivateRoute';
 import BlogDetails from "../Pages/BlogDetails/BlogDetails";
+import UpdateBlog from "../Pages/UpdateBlog/UpdateBlog";
 
 
 const router = createBrowserRouter([
@@ -24,7 +25,12 @@ const router = createBrowserRouter([
         },
         {
             path: '/addBlogs',
-            element: <AddBlog/>
+            element: <PrivateRoute><AddBlog/></PrivateRoute>
+        },
+        {
+            path: '/updateBlog/:id',
+            element: <PrivateRoute><UpdateBlog/></PrivateRoute>,
+            loader: ({params}) => fetch(`http://localhost:5000/blogs/${params.id}`)
         },
         {
             path: '/allBlogs',
@@ -36,7 +42,7 @@ const router = createBrowserRouter([
         },
         {
             path: '/wishlist',
-            element: <Wishlist/>
+            element: <PrivateRoute><Wishlist/></PrivateRoute>
         },
         {
           path: '/login',

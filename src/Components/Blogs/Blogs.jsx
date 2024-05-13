@@ -50,7 +50,7 @@ const Blogs = () => {
                       const {_id, category, image, title, short_description} = blog;
                       return (
                         <div key={_id} className="card lg:w-96 glass">
-                          <figure><img className="object-cover h-[230px] w-full" src={image} /></figure>
+                          <figure><img className="object-cover h-[230px] w-full" src={image} alt="blog-image" /></figure>
 
                           <div className="card-body">
                             <h2 className="card-title text-2xl font-bold text-gray-900 dark:text-white">{title}</h2>
@@ -67,7 +67,7 @@ const Blogs = () => {
                                   </button>
                                 </Link>
 
-                                <Link>
+                                <Link to={'/wishlist'}>
                                   <button className="px-8 lg:px-10 py-2 text-sm md:text-base  text-white uppercase duration-300  bg-black rounded-lg lg:w-auto cursor-pointer">
                                     Wishlist
                                   </button>

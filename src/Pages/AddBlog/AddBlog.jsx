@@ -13,12 +13,12 @@ const AddBlog = () => {
 
         const title = form.title.value;
         const category = form.category.value;
-        const photo = form.photo.value;
-        const short = form.short.value;
-        const long = form.long.value;
+        const image = form.photo.value;
+        const short_description = form.short.value;
+        const long_description = form.long.value;
         const email = user?.email;
         const name = user?.displayName;
-        const newBlog = {title, category, photo, short, long, name, email};
+        const newBlog = {title, category, image, short_description, long_description, name, email};
 
         axios.post('http://localhost:5000/blogs', newBlog)
         .then(res => {

@@ -1,6 +1,6 @@
 
 import { MdOutlineCategory } from "react-icons/md";
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -13,7 +13,7 @@ const BlogDetails = () => {
     const { id } = useParams();
     const { user } = useAuth();
     const loadedData = useLoaderData();
-    const {category, image, title, short_description, long_description} = loadedData;
+    const {_id, category, image, title, short_description, long_description} = loadedData;
     const [commentText, setCommentText] = useState('');
 
     const { data: commentsData, refetch: refetchComments } = useQuery({
@@ -58,8 +58,8 @@ const BlogDetails = () => {
 
             <div className="mx-auto md:p-16">
                 <div className="flex flex-col max-w-4xl mx-auto overflow-hidden rounded-xl">
-                    <img src={image} className="w-full h-[300px] md:h-[400px] rounded-xl object-cover" />
-                    <div className="p-6 pb-10 m-4 mx-auto -mt-16 space-y-3 lg:max-w-3xl lg:rounded-md bg-gray-50 shadow-md">
+                    <img src={image} alt="blog-image" className="w-full h-[300px] md:h-[400px] rounded-xl object-cover" />
+                    <div className="p-6 md:pb-[30px] m-4 mx-auto -mt-16 space-y-3 lg:max-w-3xl lg:rounded-md bg-gray-50 shadow-md">
                         <p className=" text-xl md:text-2xl font-semibold lg:text-3xl">{title}</p>
                         <div className="flex items-center gap-1">
                             <MdOutlineCategory className="text-xl text-red-500"/>
@@ -71,10 +71,14 @@ const BlogDetails = () => {
                         </div>
                         {
                             isBlogOwner && 
-                            (
-                                <button onClick={() => {/* Navigate to update route */}} className="px-5 py-2  text-white uppercase bg-red-600 rounded-lg lg:w-auto  hover:bg-red-700 focus:bg-black cursor-pointer">
-                                    Update Blog
-                                </button>
+                            (   
+                                <div className="mt-3 flex justify-center md:justify-end">
+                                    <Link to={`/updateBlog/${_id}`} >
+                                        <button className="px-5 py-2  text-white uppercase bg-red-600 rounded-lg lg:w-auto  hover:bg-red-700 focus:bg-black cursor-pointer">
+                                            Update Blog
+                                        </button>
+                                    </Link>
+                                </div>
                             )
                         }
                     </div>
