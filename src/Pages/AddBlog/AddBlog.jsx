@@ -20,7 +20,7 @@ const AddBlog = () => {
         const name = user?.displayName;
         const newBlog = {title, category, image, short_description, long_description, name, email};
 
-        axios.post('http://localhost:5000/blogs', newBlog)
+        axios.post('http://localhost:5000/blogs', newBlog, {withCredentials: true})
         .then(res => {
             if(res.data.insertedId) {
                 toast.success('Blog added successfully');
@@ -33,7 +33,7 @@ const AddBlog = () => {
     return (
         <div className="container my-10 md:my-[70px] lg:my-[100px]">
             
-            <form onSubmit={handleAddBlog} className="border-2 border-red-400 py-10 px-14 rounded-xl">
+            <form onSubmit={handleAddBlog} className="border-2 border-red-400 py-10 px-6 md:px-10 lg:px-14 rounded-xl">
                 <h1 className="text-center text-2xl md:text-[35px] font-semibold mb-5 md:mb-10">Create New <span className="text-red-500">Blog</span></h1>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>

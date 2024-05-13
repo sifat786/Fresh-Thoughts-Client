@@ -13,7 +13,7 @@ const Blogs = () => {
     queryKey: ['blog'],
     queryFn: async () => {
       try {
-        const res = await axios(`http://localhost:5000/blogs`);
+        const res = await axios(`http://localhost:5000/blogs`, {withCredentials: true});
         return res.data;
         
       } catch (e) {

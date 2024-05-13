@@ -21,7 +21,7 @@ const UpdateBlog = () => {
         const updateBlog = {title, category, image, short_description, long_description};
          
 
-        axios.put(`http://localhost:5000/blogs/${_id}`, updateBlog)
+        axios.put(`http://localhost:5000/blogs/${_id}`, updateBlog, {withCredentials: true})
         .then(res => {
             if(res.data.modifiedCount > 0) {
                 toast.success('Blog updated successfully');
@@ -32,7 +32,7 @@ const UpdateBlog = () => {
 
     return (
         <div className="container my-10 md:my-[70px] lg:my-[100px]">
-            <form onSubmit={handleUpdateBlog} className="border-2 border-red-400 py-10 px-14 rounded-xl">
+            <form onSubmit={handleUpdateBlog} className="border-2 border-red-400 py-10 px-6 md:px-10 lg:px-14 rounded-xl">
                 <h1 className="text-center text-2xl md:text-[35px] font-semibold mb-5 md:mb-10">Update <span className="text-red-500">Blog</span></h1>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
