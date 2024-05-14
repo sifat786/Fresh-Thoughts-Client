@@ -27,18 +27,18 @@ const Header = () => {
                                 ? " font-semibold text-lg bg-gradient-to-r from-yellow-500 via-red-500 to-pink-500 text-transparent bg-clip-text"
                                 : "font-medium text-lg"
                             } 
-                            to="/addBlogs"
-                >Add Blogs</NavLink>
+                            to="/allBlogs"
+                >All Blogs</NavLink>
             </li>
-
+            
             <li>
                 <NavLink className={({ isActive }) =>
                             isActive
                                 ? " font-semibold text-lg bg-gradient-to-r from-yellow-500 via-red-500 to-pink-500 text-transparent bg-clip-text"
                                 : "font-medium text-lg"
                             } 
-                            to="/allBlogs"
-                >All Blogs</NavLink>
+                            to="/addBlogs"
+                >Add Blogs</NavLink>
             </li>
 
             <li>
