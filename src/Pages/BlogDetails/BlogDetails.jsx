@@ -2,16 +2,17 @@
 import { MdOutlineCategory } from "react-icons/md";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
-import axios from "axios";
 import toast from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
 import {useState } from "react";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 
 const BlogDetails = () => {
 
-    const { id } = useParams();
     const { user } = useAuth();
+    const axiosSecure = useAxiosSecure();
+    const { id } = useParams();
     const loadedData = useLoaderData();
     const {_id, category, image, title, short_description, long_description} = loadedData;
     const [commentText, setCommentText] = useState('');
@@ -20,7 +21,7 @@ const BlogDetails = () => {
         queryKey: ['comments', id],
         queryFn: async () => {
             try {
-                const res = await axios.get(`http://localhost:5000/comments/${id}`, {withCredentials: true});
+                const res = await axiosSecure.get(`http://localhost:5000/comments/${id}`, {withCredentials: true});
                 return res.data;
             } catch (error) {
                 console.log(error);
@@ -35,7 +36,7 @@ const BlogDetails = () => {
             return;
         }
         try {
-            await axios.post('http://localhost:5000/comments', {
+            await axiosSecure.post('http://localhost:5000/comments', {
                 blogId: id,
                 text: commentText,
                 userId: user.uid,
@@ -54,7 +55,7 @@ const BlogDetails = () => {
     const isBlogOwner = user && user.email === loadedData.email;
 
     return (
-        <div className="container my-10">
+        <div className="container mt-10 mb-[120px]">
 
             <div className="mx-auto md:p-16">
                 <div className="flex flex-col max-w-4xl mx-auto overflow-hidden rounded-xl">
@@ -118,7 +119,7 @@ const BlogDetails = () => {
 
                 {
                     commentsData?.map(comment => (
-                        <div key={comment._id} className="p-2 md:px-6 md:py-4 bg-red-50 rounded-md mt-4 md:mt-6 shadow w-1/2">
+                        <div key={comment._id} className="p-2 md:px-6 md:py-4 bg-red-50 rounded-md mt-4 md:mt-6 shadow lg:w-[70%]">
                             <div className="flex items-center gap-3">
                                 <img src={comment.userProfilePic} className="self-center flex-shrink-0 w-14 h-14 md:w-20 md:h-20 border-4 border-red-500 rounded-full " />
                                 <div>

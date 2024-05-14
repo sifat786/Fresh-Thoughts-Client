@@ -1,27 +1,48 @@
 
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { MdOutlineCategory } from "react-icons/md";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Link } from "react-router-dom";
-
+import useAxiosSecure from './../../Hooks/useAxiosSecure';
+import useAuth from "../../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Blogs = () => {
 
-  const {data : blogs,isLoading, error} = useQuery({
-    queryKey: ['blog'],
+  const axiosSecure = useAxiosSecure();
+  const {user} = useAuth();
+
+  const addToWishlist = async (blogId, userId, category, image, title, short_description, long_description) => {
+    try {
+      const res = await axiosSecure.get(`/wishlist/${userId}`);
+      const wishlist = res.data;
+      const isAlreadyInWishlist = wishlist.some(item => item.blogId === blogId);
+
+      if (isAlreadyInWishlist) {
+        toast.error('Blog is already wishListed');
+      } else {
+        await axiosSecure.post('/wishlist/add', { blogId, userId, category, image, title, short_description, long_description });
+        toast.success('Blog added to wishlist');
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const { data: blogs, isLoading, error } = useQuery({
+    queryKey: ["blog"],
     queryFn: async () => {
       try {
-        const res = await axios(`http://localhost:5000/blogs`, {withCredentials: true});
+        const res = await axiosSecure("/blogs");
         return res.data;
-        
       } catch (e) {
         console.log(e);
         throw error;
       }
-    }
-})
+    },
+  });
+ 
 
   return (
     <div id="blog" className="mt-0 mb-10 md:my-[60px] lg:my-[110px]">
@@ -47,7 +68,8 @@ const Blogs = () => {
                   {
                     blogs.slice(0, 6)?.map(blog => {
 
-                      const {_id, category, image, title, short_description} = blog;
+                      const {_id, category, image, title, short_description, long_description} = blog;
+
                       return (
                         <div key={_id} className="card lg:w-96 glass">
                           <figure><img className="object-cover h-[230px] w-full" src={image} alt="blog-image" /></figure>
@@ -67,11 +89,9 @@ const Blogs = () => {
                                   </button>
                                 </Link>
 
-                                <Link to={'/wishlist'}>
-                                  <button className="px-8 lg:px-10 py-2 text-sm md:text-base  text-white uppercase duration-300  bg-black rounded-lg lg:w-auto cursor-pointer">
-                                    Wishlist
-                                  </button>
-                                </Link>
+                                <button onClick={() =>  addToWishlist(_id, user?.uid, category, image, title, short_description, long_description)} className="px-8 lg:px-10 py-2 text-sm md:text-base  text-white uppercase duration-300  bg-black rounded-lg lg:w-auto cursor-pointer">
+                                  Wishlist
+                                </button>
                             </div>
 
                           </div>

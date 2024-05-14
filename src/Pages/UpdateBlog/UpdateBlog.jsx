@@ -1,10 +1,11 @@
-import axios from "axios";
 import toast from "react-hot-toast";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 
 const UpdateBlog = () => {
 
+    const axiosSecure = useAxiosSecure();
     const loadedData = useLoaderData();
     const navigate = useNavigate();
     const { _id, category, image, title, short_description, long_description } = loadedData;
@@ -21,7 +22,7 @@ const UpdateBlog = () => {
         const updateBlog = {title, category, image, short_description, long_description};
          
 
-        axios.put(`http://localhost:5000/blogs/${_id}`, updateBlog, {withCredentials: true})
+        axiosSecure.put(`http://localhost:5000/blogs/${_id}`, updateBlog, {withCredentials: true})
         .then(res => {
             if(res.data.modifiedCount > 0) {
                 toast.success('Blog updated successfully');
