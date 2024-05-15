@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import DataTable from "react-data-table-component";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 const Featured = () => {
   const axiosSecure = useAxiosSecure();
@@ -28,7 +29,14 @@ const Featured = () => {
   return (
     <div className="container my-10 md:my-[70px] lg:my-[100px]">
       {isLoading ? (
-          <p>Loading...</p>
+          <SkeletonTheme baseColor="#e6e9ed" highlightColor="#c1c4c7">
+            <p><Skeleton count={20} /></p>
+            <p><Skeleton count={20} /></p>
+            <p><Skeleton count={20} /></p>
+            <p><Skeleton count={20} /></p>
+            <p><Skeleton count={20} /></p>
+            <p><Skeleton count={20} /></p>
+          </SkeletonTheme>
       ) : (
           <DataTable 
           title="Featured Blogs"

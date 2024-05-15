@@ -1,6 +1,7 @@
 import toast from "react-hot-toast";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 
 const UpdateBlog = () => {
@@ -30,6 +31,19 @@ const UpdateBlog = () => {
             }
         }).catch(err => console.log(err))
     }
+
+    // const { data: blogs,  error } = useQuery({
+    //     queryKey: ["blog"],
+    //     queryFn: async () => {
+    //       try {
+    //         const res = await axiosSecure("/blogs");
+    //         return res.data;
+    //       } catch (e) {
+    //         console.log(e);
+    //         throw error;
+    //       }
+    //     },
+    //   });
 
     return (
         <div className="container my-10 md:my-[70px] lg:my-[100px]">
