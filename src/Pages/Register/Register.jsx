@@ -33,9 +33,8 @@ const Register = () => {
             updateUser(name)
             setUser({ ...user, displayName: name })
             toast.success('SignUp Successfully');
-            setTimeout(() => {
-                navigate(from, {replace: true});
-            }, 2000);
+            navigate(from, {replace: true});
+            
         } catch (err) {
             console.log(err);
             toast.error('Your email is already registered!');

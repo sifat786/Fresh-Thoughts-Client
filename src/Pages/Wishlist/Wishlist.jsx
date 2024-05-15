@@ -80,7 +80,7 @@ const Wishlist = () => {
                             <p>{short_description}</p>
 
                             <div className="flex justify-between lg:justify-center lg:gap-12 mt-2">
-                                <Link to={`/blogDetails/${_id}`}>
+                                <Link to={`/wishlistDetails/${_id}`}>
                                   <button className="px-8 lg:px-10 py-2 text-sm md:text-base text-white uppercase duration-300  bg-red-600 rounded-lg lg:w-auto hover:bg-red-700 cursor-pointer">
                                     Details
                                   </button>

@@ -30,10 +30,9 @@ const Login = () => {
 
     try{
       await loginUser(email, password);
-      toast.success('SignIn Successfully');
-      setTimeout(() => {
+        toast.success('SignIn Successfully');
         navigate(from, {replace: true});
-      }, 2000);
+        
     } catch(err) {
       console.log(err);
       toast.error(err.message);
@@ -42,13 +41,12 @@ const Login = () => {
 
   //* google login:
   const handleGoogleLogin = async () => {
+
     try {
       await googleLogin();
-      toast.success('SignIn Successfully');
-      setTimeout(() => {
-        navigate(location?.state ? location.state : '/');
-      }, 2000);
-      
+        toast.success('SignIn Successfully');
+        navigate(location?.state ? location.state : '/', {replace: true});
+
     } catch (err) {
       console.log(err);
       toast.error(err?.message);

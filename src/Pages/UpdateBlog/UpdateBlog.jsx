@@ -22,7 +22,7 @@ const UpdateBlog = () => {
         const updateBlog = {title, category, image, short_description, long_description};
          
 
-        axiosSecure.put(`http://localhost:5000/blogs/${_id}`, updateBlog, {withCredentials: true})
+        axiosSecure.put(`/blogs/${_id}`, updateBlog)
         .then(res => {
             if(res.data.modifiedCount > 0) {
                 toast.success('Blog updated successfully');

@@ -15,7 +15,7 @@ const AllBlog = () => {
     const [category, setCategory] = useState('');
     const [search, setSearch] = useState('');
 
-    const addToWishlist = async (blogId, userId, name, email, category, image, title, short_description, long_description) => {
+    const addToWishlist = async (blogId, userId, name, email, profilePic, category, image, title, short_description, long_description) => {
       try {
         const res = await axiosSecure.get(`/wishlist/${userId}`);
         const wishlist = res.data;
@@ -24,7 +24,7 @@ const AllBlog = () => {
         if (isAlreadyInWishlist) {
           toast.error('Blog is already wishListed');
         } else {
-          await axiosSecure.post('/wishlist/add', { blogId, userId, name, email, category, image, title, short_description, long_description });
+          await axiosSecure.post('/wishlist/add', { blogId, userId, name, email, profilePic, category, image, title, short_description, long_description });
           toast.success('Blog added to wishlist');
         }
       } catch (error) {
@@ -131,7 +131,7 @@ const AllBlog = () => {
                                     </button>
                                   </Link>
 
-                                  <button onClick={() =>  addToWishlist(_id, user?.uid, user?.displayName, user?.email, category, image, title, short_description, long_description)} className="px-8 lg:px-10 py-2 text-sm md:text-base  text-white uppercase duration-300  bg-black rounded-lg lg:w-auto cursor-pointer">
+                                  <button onClick={() =>  addToWishlist(_id, user?.uid, user?.displayName, user?.email, user?.photoURL, category, image, title, short_description, long_description)} className="px-8 lg:px-10 py-2 text-sm md:text-base  text-white uppercase duration-300  bg-black rounded-lg lg:w-auto cursor-pointer">
                                     Wishlist
                                   </button>
                               </div>

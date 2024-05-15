@@ -19,9 +19,10 @@ const AddBlog = () => {
         const long_description = form.long.value;
         const email = user?.email;
         const name = user?.displayName;
-        const newBlog = {title, category, image, short_description, long_description, name, email};
+        const profilePic = user?.photoURL;
+        const newBlog = {title, category, image, short_description, long_description, name, email, profilePic};
 
-        axiosSecure.post('/blogs', newBlog, {withCredentials: true})
+        axiosSecure.post('/blogs', newBlog)
         .then(res => {
             if(res.data.insertedId) {
                 toast.success('Blog added successfully');
