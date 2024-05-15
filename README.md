@@ -6,10 +6,11 @@
 
 ## Features:
 
-- **Discover Exclusive Properties with Responsive Design:** Browse exclusive painting and drawing from around the world on any device (mobile, laptop, or desktop).
-- **Update Painting:** Using the MongoDB PUT method to update users painting data.
-- **Sell Painting:** Creative artists can effortlessly showcase and sell their paintings.
-- **Smooth Animations:** Enhance user experience with smooth animations using react-awesome-reveal.
+- **Discover Exclusive Blogs with Responsive Design:** Browse exclusive blogs on any device (mobile, laptop, or desktop).
+- **Add Blogs:** Using the MongoDB POST method, here users can add their blog.
+- **Update Blogs:** Using the MongoDB PUT method, here users can update their own created blogs.
+- **Featured Blogs:** Here, users can see top 10 posts in a table.
+- **Smooth Animations:** Enhance user experience with smooth animations using framer-motion.
 - **Firebase Authentication:** Utilize Firebase Authentication to handle user authentication securely.
 
 

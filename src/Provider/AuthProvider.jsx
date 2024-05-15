@@ -1,8 +1,8 @@
-import { createContext, useEffect, useState } from "react";
-import PropTypes from 'prop-types';
-import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
-import auth from './../firebase/firebase.config';
 import axios from "axios";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import PropTypes from 'prop-types';
+import { createContext, useEffect, useState } from "react";
+import auth from './../firebase/firebase.config';
 
 
 
@@ -56,13 +56,13 @@ const AuthProvider = ({children}) => {
             const userEmail = currentUser?.email || user?.email;
             const loggedUser = { email: userEmail };
             if(currentUser) {
-                axios.post('http://localhost:5000/jwt', loggedUser, {withCredentials: true})
+                axios.post('https://fresh-thoughts-server.vercel.app/jwt', loggedUser, {withCredentials: true})
                 .then(res => {
                     console.log(res.data);
                 }).catch(err => console.log(err));
             } 
             else {
-                axios.post('http://localhost:5000/logout', loggedUser, {withCredentials: true})
+                axios.post('https://fresh-thoughts-server.vercel.app/logout', loggedUser, {withCredentials: true})
                 .then(res => {
                     console.log(res.data);
                 }).catch(err => console.log(err));
