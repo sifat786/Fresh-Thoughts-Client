@@ -1,7 +1,7 @@
 
 # Welcome to Fresh Thoughts
 
-**Live Site URL:** [Fresh Thoughts](https://fresh-thoughts-12a68.web.app/)
+**Live Site URL:** [Fresh Thoughts](https://fresh-thoughts-12a68.web.app)
 
 
 ## Features:
