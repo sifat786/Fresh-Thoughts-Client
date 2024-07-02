@@ -37,7 +37,6 @@ VITE_projectId=***************
 VITE_storageBucket=***************
 VITE_messagingSenderId=***************
 VITE_appId=***************
-VITE_IMAGE_HOSTING_KEY=***************
 ```
 
 The first six api key you will get form firebase & and the last api key you will get from ImgBB.
